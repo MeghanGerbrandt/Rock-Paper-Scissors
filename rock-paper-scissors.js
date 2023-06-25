@@ -13,7 +13,7 @@ const compScore = document.getElementById("compScore");
 const results = document.querySelector(".results");
 const score = document.querySelector(".score");
 
-const p = document.createElement("p");
+const p = document.createElement("p"); 
 
 function getComputerChoice() {
     return computerChoice[(Math.floor(Math.random() * computerChoice.length))];
@@ -23,6 +23,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
       //  const p = document.createElement("p");
         p.classList.add("result");
+        p.setAttribute('style', 'font-size: 20px; font-style: italic; font-family: Cambria;' );
         p.innerText = `It's a Tie, you both chose ${playerSelection}!`;
         results.appendChild(p);     
     } else if 
@@ -32,6 +33,7 @@ function playRound(playerSelection, computerSelection) {
             playerScore++;
           //  const p = document.createElement("p");
             p.classList.add("result");
+            p.setAttribute('style', 'font-size: 20px; font-style: italic; font-family: Cambria;' );
             p.innerText = `You Win, ${playerSelection} beats ${computerSelection}!`;
             results.appendChild(p);             
     } else if 
@@ -41,13 +43,14 @@ function playRound(playerSelection, computerSelection) {
             computerScore++;
          //   const p = document.createElement("p");
             p.classList.add("result");
+            p.setAttribute('style', 'font-size: 20px; font-style: italic; font-family: Cambria;' );
             p.innerText = `You Lose, ${computerSelection} beats ${playerSelection}!`; 
             results.appendChild(p);     
     } 
 }
 
 function getScore(yourScore, compScore) {
-    const p = document.createElement("p");
+ //   const p = document.createElement("p");
     p.classList.add("score");
     yourScore.innerText = `Your Score: ${playerScore}`;
     compScore.innerText = `Computer Score: ${computerScore}`;
@@ -57,18 +60,20 @@ function getScore(yourScore, compScore) {
 function getWinner(playerScore, computerScore) {
     if (playerScore === 5) {
         gameOver = true;
-        const p = document.createElement("p");
+     //   const p = document.createElement("p");
         p.innerText = `Congrats, you are the Winner!`;
-        resetButton.innerHTML = `<button onclick="newGame()">Play Again</button>`
+        p.setAttribute('style', 'color: #5C4033;font-size: 28px; font-weight: bold; font-family: Cambria;' );
+        resetButton.innerHTML = `<button onclick="newGame()" style="color: white; padding: 15px 32px ; border: none; background-color: #5C4033; font-family: Cambria; font-size: 18px;">Play Again</button>`;
         results.appendChild(p);
         rockButton.setAttribute("disabled", 1);
         paperButton.setAttribute("disabled", 1);
         scissorsButton.setAttribute("disabled", 1);
     } else if (computerScore === 5) {
         gameOver = true;
-            const p = document.createElement("p");
+          //  const p = document.createElement("p");
             p.innerText = `You lost, better luck next time.`;
-            resetButton.innerHTML = '<button onclick="newGame()">Play Again</button>';
+            p.setAttribute('style', 'color: #5C4033; font-size: 28px; font-weight: bold; font-family: Cambria;' );
+            resetButton.innerHTML = '<button onclick="newGame()" style="color: white; padding: 15px 32px ; border: none; background-color: #5C4033; font-family: Cambria; font-size: 18px;">Play Again</button>';
             results.appendChild(p);
             rockButton.setAttribute("disabled", 1);
             paperButton.setAttribute("disabled", 1);
